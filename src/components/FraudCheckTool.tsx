@@ -75,18 +75,27 @@ const FraudCheckTool = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-background">
+    <section className="relative py-12 md:py-20 bg-background overflow-hidden">
+      {/* Indian Flag Accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 flex">
+        <div className="flex-1 bg-[hsl(25,100%,58%)]"></div>
+        <div className="flex-1 bg-white"></div>
+        <div className="flex-1 bg-[hsl(148,62%,28%)]"></div>
+      </div>
+
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <Search className="w-12 h-12 mx-auto mb-4 text-primary" />
+          <div className="text-center mb-10 md:mb-12 slide-up">
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full mb-4 pulse-glow">
+              <Search className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            </div>
             <h2 className="mb-4">Check Transaction Safety</h2>
-            <p className="text-lg text-muted-foreground">
-              Use our AI-powered fraud detection to verify transaction safety (Demo)
+            <p className="text-base md:text-lg text-muted-foreground px-4">
+              लेनदेन सुरक्षा जांच | Use our AI-powered fraud detection to verify transaction safety (Demo)
             </p>
           </div>
 
-          <Card className="p-8 shadow-elevated">
+          <Card className="p-5 md:p-8 shadow-elevated border-2 border-border slide-up" style={{ animationDelay: '0.1s' }}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -153,13 +162,13 @@ const FraudCheckTool = () => {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-[hsl(25,100%,58%)] hover:bg-[hsl(25,100%,65%)] text-white font-bold transition-spring hover:scale-105"
                 size="lg"
                 disabled={isChecking}
               >
                 {isChecking ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2" />
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                     Analyzing Transaction...
                   </>
                 ) : (

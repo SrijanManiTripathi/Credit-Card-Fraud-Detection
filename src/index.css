@@ -17,6 +17,12 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
+    /* Indian Tricolor - National Pride */
+    --india-saffron: 25 100% 58%;
+    --india-white: 0 0% 100%;
+    --india-green: 148 62% 28%;
+    --india-navy: 217 91% 35%;
+    
     /* Trust blue - RBI inspired */
     --primary: 217 91% 35%;
     --primary-foreground: 0 0% 100%;
@@ -24,7 +30,7 @@ All colors MUST be HSL.
     --primary-dark: 217 91% 25%;
 
     /* Warning amber for alerts */
-    --secondary: 30 90% 55%;
+    --secondary: 25 100% 58%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 96%;
@@ -49,8 +55,11 @@ All colors MUST be HSL.
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(217 91% 35%), hsl(230 85% 45%));
+    --gradient-tricolor: linear-gradient(180deg, hsl(25 100% 58%) 0%, hsl(0 0% 100%) 33%, hsl(148 62% 28%) 66%, hsl(217 91% 35%) 100%);
+    --gradient-saffron-white: linear-gradient(135deg, hsl(25 100% 58%), hsl(25 100% 68%));
+    --gradient-green-navy: linear-gradient(135deg, hsl(148 62% 28%), hsl(217 91% 35%));
     --gradient-trust: linear-gradient(180deg, hsl(217 91% 98%), hsl(0 0% 100%));
-    --gradient-warning: linear-gradient(135deg, hsl(30 90% 55%), hsl(25 85% 60%));
+    --gradient-india-shine: linear-gradient(90deg, hsl(25 100% 58%), hsl(0 0% 100%), hsl(148 62% 28%));
     
     /* Shadows */
     --shadow-card: 0 2px 8px hsl(220 15% 15% / 0.08);
@@ -200,6 +209,90 @@ All colors MUST be HSL.
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  .gradient-tricolor {
+    background: var(--gradient-tricolor);
+  }
+
+  .gradient-saffron-white {
+    background: var(--gradient-saffron-white);
+  }
+
+  .gradient-green-navy {
+    background: var(--gradient-green-navy);
+  }
+
+  .gradient-india-shine {
+    background: var(--gradient-india-shine);
+    background-size: 200% 100%;
+    animation: shine 3s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .flag-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-8px) rotate(2deg);
+    }
+    75% {
+      transform: translateY(-8px) rotate(-2deg);
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(25 100% 58% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(25 100% 58% / 0.6), 0 0 60px hsl(148 62% 28% / 0.4);
+    }
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

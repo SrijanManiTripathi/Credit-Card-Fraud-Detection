@@ -101,74 +101,90 @@ const SecurityChecklist = () => {
   const progress = Math.round((completed.size / checklistItems.length) * 100);
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-trust">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="relative py-12 md:py-20 bg-gradient-trust overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-20 right-0 w-40 h-40 bg-[hsl(25,100%,58%)]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-0 w-40 h-40 bg-[hsl(148,62%,28%)]/5 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <Shield className="w-12 h-12 mx-auto mb-4 text-primary" />
+          <div className="text-center mb-10 md:mb-12 slide-up">
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-full mb-4 pulse-glow">
+              <Shield className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            </div>
             <h2 className="mb-4">7-Step Security Onboarding</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Complete these essential steps to protect your financial accounts from fraud
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+              सुरक्षा चेकलिस्ट | Complete these essential steps to protect your financial accounts from fraud
             </p>
           </div>
 
-          {/* Progress Bar */}
-          <div className="mb-10">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-foreground">Your Progress</span>
-              <span className="text-sm font-semibold text-primary">{progress}% Complete</span>
+          {/* Enhanced Progress Bar with Tricolor */}
+          <div className="mb-8 md:mb-10 slide-up" style={{ animationDelay: '0.1s' }}>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm md:text-base font-bold text-foreground">Your Progress</span>
+              <span className="text-sm md:text-base font-bold text-primary">{progress}% Complete</span>
             </div>
-            <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-muted rounded-full h-4 overflow-hidden border-2 border-border shadow-inner">
               <div
-                className="h-full bg-primary transition-all duration-500 ease-out"
-                style={{ width: `${progress}%` }}
-              />
+                className="h-full transition-all duration-700 ease-out relative"
+                style={{ 
+                  width: `${progress}%`,
+                  background: progress === 100 
+                    ? 'linear-gradient(90deg, hsl(25 100% 58%), hsl(148 62% 28%))' 
+                    : 'hsl(217 91% 35%)'
+                }}
+              >
+                {progress > 0 && (
+                  <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                )}
+              </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-2">
-              {completed.size} of {checklistItems.length} steps completed
+            <p className="text-xs md:text-sm text-muted-foreground mt-2">
+              ✓ {completed.size} of {checklistItems.length} steps completed
             </p>
           </div>
 
           {/* Checklist Items */}
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 md:space-y-4 mb-8">
             {checklistItems.map((item) => {
               const isCompleted = completed.has(item.step);
               return (
                 <Card
                   key={item.step}
-                  className={`p-6 transition-smooth cursor-pointer ${
+                  className={`p-4 md:p-6 transition-spring cursor-pointer hover:scale-[1.01] slide-up ${
                     isCompleted
-                      ? "border-success bg-success/5"
-                      : "border-border hover:border-primary"
+                      ? "border-2 border-success bg-success/5 shadow-card"
+                      : "border-2 border-border hover:border-primary hover:shadow-card"
                   }`}
+                  style={{ animationDelay: `${0.2 + item.step * 0.05}s` }}
                   onClick={() => toggleStep(item.step)}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3 md:gap-4">
                     <div className="flex-shrink-0 mt-1">
                       {isCompleted ? (
-                        <CheckCircle2 className="w-6 h-6 text-success" />
+                        <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 text-success" />
                       ) : (
-                        <Circle className="w-6 h-6 text-muted-foreground" />
+                        <Circle className="w-6 h-6 md:w-7 md:h-7 text-muted-foreground" />
                       )}
                     </div>
                     
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <span className="text-xs font-bold text-primary bg-accent px-2 py-1 rounded">
+                        <div className="flex-1">
+                          <span className="inline-block text-xs font-bold text-white bg-primary px-3 py-1 rounded-full">
                             STEP {item.step}
                           </span>
-                          <h3 className="text-xl font-bold mt-2">{item.title}</h3>
+                          <h3 className="text-lg md:text-xl font-bold mt-2 leading-tight">{item.title}</h3>
                         </div>
                       </div>
                       
-                      <p className="text-muted-foreground mb-3">{item.description}</p>
+                      <p className="text-sm md:text-base text-muted-foreground mb-3">{item.description}</p>
                       
-                      <ul className="space-y-2 ml-4">
+                      <ul className="space-y-1.5 md:space-y-2 ml-2 md:ml-4">
                         {item.details.map((detail, i) => (
-                          <li key={i} className="text-sm text-foreground flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            <span>{detail}</span>
+                          <li key={i} className="text-xs md:text-sm text-foreground flex items-start gap-2">
+                            <span className="text-primary mt-1 font-bold">•</span>
+                            <span className="flex-1">{detail}</span>
                           </li>
                         ))}
                       </ul>
@@ -180,25 +196,25 @@ const SecurityChecklist = () => {
           </div>
 
           {/* Download Section */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="outline" size="lg" className="gap-2">
-              <Download className="w-5 h-5" />
-              Download Checklist PDF (English)
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-stretch slide-up" style={{ animationDelay: '0.6s' }}>
+            <Button variant="outline" size="lg" className="gap-2 text-sm md:text-base font-semibold hover:scale-105 transition-spring">
+              <Download className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">Download Checklist PDF </span>(English)
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
-              <Download className="w-5 h-5" />
-              Download Checklist PDF (Hindi)
+            <Button variant="outline" size="lg" className="gap-2 text-sm md:text-base font-semibold hover:scale-105 transition-spring">
+              <Download className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">चेकलिस्ट डाउनलोड करें </span>(हिन्दी)
             </Button>
           </div>
 
           {completed.size === checklistItems.length && (
-            <div className="mt-8 p-6 bg-success/10 border-2 border-success rounded-lg text-center">
-              <CheckCircle2 className="w-12 h-12 mx-auto mb-3 text-success" />
-              <h3 className="text-xl font-bold text-success mb-2">
-                Congratulations! Your Account is Secure
+            <div className="mt-8 p-5 md:p-6 bg-gradient-india-shine rounded-xl border-2 border-[hsl(148,62%,28%)] text-center slide-up shadow-elevated">
+              <CheckCircle2 className="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 text-[hsl(148,62%,28%)] drop-shadow-lg" />
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                🎉 Congratulations! Your Account is Secure
               </h3>
-              <p className="text-foreground">
-                You've completed all essential security steps. Remember to review these settings quarterly and stay updated on new security measures.
+              <p className="text-sm md:text-base text-foreground/80 max-w-2xl mx-auto">
+                बधाई हो! You've completed all essential security steps. Remember to review these settings quarterly and stay updated on new security measures.
               </p>
             </div>
           )}

@@ -19,6 +19,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        india: {
+          saffron: "hsl(var(--india-saffron))",
+          white: "hsl(var(--india-white))",
+          green: "hsl(var(--india-green))",
+          navy: "hsl(var(--india-navy))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
