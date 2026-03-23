@@ -67,23 +67,34 @@ const scams = [
 
 const LatestScams = () => {
   return (
-    <section className="relative py-12 md:py-20 bg-background overflow-hidden">
-      {/* Indian Tricolor Accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 flex">
-        <div className="flex-1 bg-[hsl(25,100%,58%)]"></div>
-        <div className="flex-1 bg-white"></div>
-        <div className="flex-1 bg-[hsl(148,62%,28%)]"></div>
+    <section className="relative py-16 md:py-24 bg-gradient-to-br from-red-50/30 via-white to-orange-50/20 overflow-hidden" id="latest-scams">
+      {/* Enhanced Indian Tricolor Accent */}
+      <div className="absolute top-0 left-0 right-0 h-2 flex shadow-sm">
+        <div className="flex-1 bg-gradient-to-r from-[hsl(25,100%,55%)] to-[hsl(25,100%,65%)]"></div>
+        <div className="flex-1 bg-gradient-to-r from-white to-gray-50"></div>
+        <div className="flex-1 bg-gradient-to-r from-[hsl(148,62%,25%)] to-[hsl(148,62%,35%)]"></div>
       </div>
+
+      {/* Warning-themed background elements */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-red-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-40 h-40 bg-orange-500/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10 md:mb-12 slide-up">
-            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-destructive/10 rounded-full mb-4">
-              <AlertTriangle className="w-8 h-8 md:w-10 md:h-10 text-destructive" />
+          <div className="text-center mb-12 md:mb-16 slide-up">
+            <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-6 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-orange-500/10 to-red-600/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
+              <div className="relative bg-gradient-to-br from-white to-red-50 rounded-full p-5 md:p-6 shadow-lg border-2 border-red-100 group-hover:scale-110 transition-all duration-300">
+                <AlertTriangle className="w-10 h-10 md:w-12 md:h-12 text-red-600" />
+              </div>
             </div>
-            <h2 className="mb-4">Latest Fraud Tactics</h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              नवीनतम घोटाले | Stay informed about emerging scams and learn how to protect yourself
+            <h2 className="mb-6 bg-gradient-to-r from-gray-800 via-red-700 to-gray-800 bg-clip-text text-transparent font-black">
+              Latest Fraud Tactics
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+              <span className="text-red-600 font-bold">नवीनतम घोटाले</span>
+              <br />
+              Stay informed about emerging scams targeting Indian financial systems and learn protective measures
             </p>
           </div>
 

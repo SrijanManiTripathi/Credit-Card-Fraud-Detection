@@ -2,18 +2,37 @@ import { Shield, Mail, Phone, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-12 md:py-16">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="relative bg-gradient-to-br from-[hsl(217,91%,35%)] via-[hsl(217,91%,30%)] to-[hsl(217,91%,25%)] text-primary-foreground py-16 md:py-20 overflow-hidden">
+      {/* Enhanced Indian Tricolor Top Border */}
+      <div className="absolute top-0 left-0 right-0 h-2 flex">
+        <div className="flex-1 bg-gradient-to-r from-[hsl(25,100%,55%)] to-[hsl(25,100%,65%)]"></div>
+        <div className="flex-1 bg-gradient-to-r from-white to-gray-50"></div>
+        <div className="flex-1 bg-gradient-to-r from-[hsl(148,62%,25%)] to-[hsl(148,62%,35%)]"></div>
+      </div>
+
+      {/* Decorative Background Elements */}
+      <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-[hsl(25,100%,58%)]/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-32 h-32 bg-gradient-to-br from-[hsl(148,62%,28%)]/10 to-transparent rounded-full blur-2xl"></div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Brand */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Shield className="w-8 h-8" />
-                <span className="font-bold text-xl">FraudGuard India</span>
+            {/* Enhanced Brand */}
+            <div className="slide-up">
+              <div className="flex items-center gap-3 mb-6 group">
+                <div className="relative">
+                  <Shield className="w-10 h-10 text-white group-hover:scale-110 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-white/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                </div>
+                <img src="/india-flag-simple.svg" alt="Indian Flag" className="w-8 h-5 object-contain shadow-sm rounded-sm" />
+                <span className="font-black text-2xl bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                  FraudGuard India
+                </span>
               </div>
-              <p className="text-sm text-primary-foreground/80 leading-relaxed">
-                Protecting Indian citizens from financial fraud with RBI & NPCI-guided security measures.
+              <p className="text-base text-primary-foreground/90 leading-relaxed max-w-sm">
+                Protecting Indian citizens from financial fraud with 
+                <span className="text-[hsl(25,100%,70%)] font-semibold"> RBI & NPCI-guided </span>
+                security measures.
               </p>
             </div>
 
@@ -92,7 +111,7 @@ const Footer = () => {
                   <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="font-semibold">National Helpline</div>
-                    <div className="text-primary-foreground/80">1800-XXXX-XXX</div>
+                    <div className="text-primary-foreground/80">1800-11-1234</div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">

@@ -10,7 +10,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
-      <div className="relative">
+      <div className="relative bg-gradient-to-b from-white via-gray-50/50 to-white">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-[hsl(25,100%,58%)]/20 to-transparent"></div>
+        <div className="absolute top-64 right-1/4 w-px h-32 bg-gradient-to-b from-[hsl(148,62%,28%)]/20 to-transparent"></div>
+        
         <RegulatoryTimeline />
         <LatestScams />
         <SecurityChecklist />

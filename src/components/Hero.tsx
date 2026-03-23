@@ -3,56 +3,85 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative gradient-hero text-primary-foreground py-12 md:py-20 overflow-hidden">
-      {/* Indian Tricolor Top Border */}
-      <div className="absolute top-0 left-0 right-0 h-2 z-20">
-        <div className="h-full flex">
-          <div className="flex-1 bg-[hsl(25,100%,58%)]"></div>
-          <div className="flex-1 bg-white"></div>
-          <div className="flex-1 bg-[hsl(148,62%,28%)]"></div>
+    <section className="relative gradient-hero text-primary-foreground py-16 md:py-24 overflow-hidden min-h-screen flex items-center">
+      {/* Enhanced Indian Tricolor Top Border with Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-3 z-30">
+        <div className="h-full flex shadow-lg">
+          <div className="flex-1 bg-gradient-to-r from-[hsl(25,100%,55%)] to-[hsl(25,100%,65%)]"></div>
+          <div className="flex-1 bg-gradient-to-r from-white to-gray-50"></div>
+          <div className="flex-1 bg-gradient-to-r from-[hsl(148,62%,25%)] to-[hsl(148,62%,35%)]"></div>
         </div>
       </div>
 
-      {/* Animated Background Elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-[hsl(25,100%,58%)]/10 rounded-full blur-3xl float-animation" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-[hsl(148,62%,28%)]/10 rounded-full blur-3xl float-animation" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-40 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-2xl float-animation" style={{ animationDelay: '1s' }} />
+      {/* Decorative Mandala Pattern */}
+      <div className="absolute top-10 right-10 w-64 h-64 opacity-5 pointer-events-none">
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="white" strokeWidth="0.5"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="white" strokeWidth="0.5"/>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="white" strokeWidth="0.5"/>
+          <circle cx="50" cy="50" r="10" fill="none" stroke="white" strokeWidth="0.5"/>
+        </svg>
+      </div>
+
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(217,91%,35%)] via-[hsl(230,85%,45%)] to-[hsl(217,91%,25%)]"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-[hsl(25,100%,58%)]/5 to-transparent"></div>
+
+      {/* Enhanced Animated Background Elements */}
+      <div className="absolute top-20 right-10 w-40 h-40 bg-gradient-to-br from-[hsl(25,100%,58%)]/15 to-[hsl(25,100%,70%)]/5 rounded-full blur-3xl float-animation" />
+      <div className="absolute bottom-20 left-10 w-48 h-48 bg-gradient-to-br from-[hsl(148,62%,28%)]/15 to-[hsl(148,62%,40%)]/5 rounded-full blur-3xl float-animation" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-40 left-1/4 w-32 h-32 bg-gradient-to-br from-white/10 to-white/2 rounded-full blur-2xl float-animation" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-40 right-1/3 w-36 h-36 bg-gradient-to-br from-[hsl(25,100%,58%)]/8 to-transparent rounded-full blur-2xl float-animation" style={{ animationDelay: '3s' }} />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Flag Icon with Animation */}
-          <div className="flex justify-center mb-6 slide-up">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-india-shine opacity-20 blur-xl rounded-full"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 pulse-glow">
-                <Shield className="w-12 h-12 md:w-16 md:h-16 text-white drop-shadow-lg" />
-                <Flag className="absolute -top-2 -right-2 w-6 h-6 md:w-8 md:h-8 text-[hsl(25,100%,58%)] flag-wave" />
+          {/* Enhanced Flag Icon with Modern Design */}
+          <div className="flex justify-center mb-8 slide-up">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-india-shine opacity-30 blur-2xl rounded-full group-hover:opacity-50 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(25,100%,58%)]/20 via-white/10 to-[hsl(148,62%,28%)]/20 rounded-3xl blur-xl"></div>
+              <div className="relative bg-white/15 backdrop-blur-md p-8 rounded-3xl border-2 border-white/30 pulse-glow flex items-center justify-center shadow-2xl hover:scale-105 transition-all duration-300">
+                <Shield className="w-16 h-16 md:w-20 md:h-20 text-white drop-shadow-2xl" />
+                <img src="/india-flag-simple.svg" alt="Indian Flag" className="absolute -top-3 -right-3 w-10 h-7 md:w-12 md:h-8 flag-wave shadow-lg rounded-sm" />
+                {/* Decorative dots */}
+                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-[hsl(25,100%,58%)] rounded-full animate-pulse"></div>
+                <div className="absolute -top-2 -left-2 w-2 h-2 bg-[hsl(148,62%,28%)] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute -bottom-2 -right-1 w-2 h-2 bg-white rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
             </div>
           </div>
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-6 slide-up" style={{ animationDelay: '0.1s' }}>
-            <Sparkles className="w-4 h-4 text-[hsl(25,100%,58%)]" />
-            <span className="text-sm font-semibold text-white">भारत सरकार | Government of India Initiative</span>
+          {/* Enhanced Badge */}
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/30 mb-8 slide-up shadow-lg hover:shadow-xl transition-all duration-300" style={{ animationDelay: '0.1s' }}>
+            <Sparkles className="w-5 h-5 text-[hsl(25,100%,58%)] animate-pulse" />
+            <span className="text-sm md:text-base font-bold text-white tracking-wide">भारत सरकार | Government of India Initiative</span>
+            <div className="w-2 h-2 bg-[hsl(148,62%,28%)] rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
           </div>
           
-          <h1 className="mb-6 text-primary-foreground slide-up leading-tight" style={{ animationDelay: '0.2s' }}>
-            Secure Your Financial Future
+          <h1 className="mb-8 text-primary-foreground slide-up leading-tight font-black tracking-tight" style={{ animationDelay: '0.2s' }}>
+            <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl">
+              Secure Your Financial Future
+            </span>
           </h1>
           
-          <p className="text-lg md:text-2xl mb-10 text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed slide-up" style={{ animationDelay: '0.3s' }}>
-            भारत में वित्तीय सुरक्षा | Protect yourself from credit card and UPI fraud with RBI & NPCI-guided security measures
+          <p className="text-xl md:text-3xl mb-12 text-primary-foreground/95 max-w-4xl mx-auto leading-relaxed slide-up font-medium" style={{ animationDelay: '0.3s' }}>
+            <span className="text-[hsl(25,100%,70%)] font-bold">भारत में वित्तीय सुरक्षा</span>
+            <br className="hidden md:block" />
+            <span className="text-white/90">Protect yourself from credit card and UPI fraud with</span>
+            <br className="hidden md:block" />
+            <span className="text-[hsl(148,62%,40%)] font-semibold">RBI & NPCI-guided security measures</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 slide-up" style={{ animationDelay: '0.4s' }}>
-            <Button size="lg" className="text-base md:text-lg shadow-elevated bg-[hsl(25,100%,58%)] hover:bg-[hsl(25,100%,65%)] text-white font-semibold px-8 py-6 transition-spring hover:scale-105">
-              <CheckCircle2 className="mr-2 h-5 w-5" />
-              Check Transaction Safety
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 slide-up" style={{ animationDelay: '0.4s' }}>
+            <Button size="lg" className="text-lg md:text-xl shadow-2xl bg-gradient-to-r from-[hsl(25,100%,58%)] to-[hsl(25,100%,70%)] hover:from-[hsl(25,100%,65%)] hover:to-[hsl(25,100%,75%)] text-white font-bold px-10 py-7 transition-all duration-300 hover:scale-110 hover:shadow-3xl group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <CheckCircle2 className="mr-3 h-6 w-6 relative z-10" />
+              <span className="relative z-10">Check Transaction Safety</span>
             </Button>
-            <Button size="lg" variant="outline" className="text-base md:text-lg border-2 border-white/40 bg-white/5 backdrop-blur-sm text-white hover:bg-white hover:text-primary font-semibold px-8 py-6 transition-spring hover:scale-105">
-              <AlertTriangle className="mr-2 h-5 w-5" />
-              Report Fraud Now
+            <Button size="lg" variant="outline" className="text-lg md:text-xl border-3 border-white/50 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-primary font-bold px-10 py-7 transition-all duration-300 hover:scale-110 hover:shadow-2xl group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <AlertTriangle className="mr-3 h-6 w-6 relative z-10" />
+              <span className="relative z-10">Report Fraud Now</span>
             </Button>
           </div>
 
